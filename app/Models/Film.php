@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Film extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'filmek';
     protected $fillable = ['cim', 'kategoria', 'hossz', 'ertekeles'];
     protected $visible = ['id', 'cim', 'kategoria', 'hossz', 'ertekeles'];
