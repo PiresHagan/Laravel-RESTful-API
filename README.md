@@ -19,11 +19,11 @@ A fejlesztői szervert az alábbi utasítással indíthatjuk el:
 
 Ellenőrizzük, hogy minden rendben van-e, hogy az alábbi URL teszt JSON adatokat ad-e vissza:
 
-http://localhost:8000/api/film
+<http://localhost:8000/api/film>
 
 ## Adattáblák
 
-### filmek
+### **filmek**
 
 A tárolt filmek
 
@@ -37,7 +37,7 @@ A tárolt filmek
 
 Minden be- és kimeneti adat JSON formátumú.
 
-**GET /api/film**
+### **GET /api/film**
 
 Visszaadja a filmek listáját.
 
@@ -58,17 +58,17 @@ Visszaadja a filmek listáját.
         },
     }
 
-**POST /api/film**
+### **POST /api/film**
 
 Létrehoz egy új filmet a megadott adatokkal. Az id-n kívül minden mező megadása kötelező!
 
 Visszaadja a létrehozott film adatait, beleértve a generált ID-t.
 
-**GET /api/film/{id}**
+### **GET /api/film/{id}**
 
 Az *id* azonosítójú film adatait adja vissza.
 
-**PATCH /api/film/{id}**
+### **PATCH /api/film/{id}**
 
 Módosítja az *id* azonosítójú film adatait. Csak a módosítandó adatokat kell megadni, pl. ha csak az értékelést szeretnénk módosítani, akkor elég ennyit megadni:
 
@@ -80,7 +80,7 @@ Az ID nem módosítható.
 
 Visszaadja a módosított film adatait.
 
-**PUT /api/film/{id}**
+### **PUT /api/film/{id}**
 
 Módosítja az *id* azonosítójú film adatait. Minden adatot meg kell adni.
 
@@ -88,7 +88,7 @@ Az ID nem módosítható.
 
 Visszaadja a módosított film adatait.
 
-**DELETE /api/film/{id}**
+### **DELETE /api/film/{id}**
 
 Törli az adott azonosítójú filmet.
 
@@ -101,7 +101,7 @@ Ha a végpontot nem megfelelően hívtuk meg, vagy az adatok nem felelnek meg a 
 * A HTTP státusz kód a 400-as sávból fog kikerülni, a hiba típusának megfelelően
 * A visszakapott JSON objetum "message" tulajdonsága tartalmazza a hiba okát.
 
-Pl.: GET http://localhost:8000/api/film/9999 (nem létező id)
+Pl.: GET <http://localhost:8000/api/film/9999> (nem létező id)
 
     404 Not Found
     {
