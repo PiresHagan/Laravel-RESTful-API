@@ -1,6 +1,6 @@
 # FilmDb backend laraveles megvalósítása
 
-Filmek adatait tárolja
+Filmek adatait tároló laravel alkalmazás. Ez egy oktatási célú repo a BMSZC Petrik Lajos technikum végzős szoftverfejlesztő osztályai számára.
 
 ## Telepítési lépések
 
@@ -25,7 +25,7 @@ Ellenőrizzük, hogy minden rendben van-e, hogy az alábbi URL teszt JSON adatok
 
 ### **filmek**
 
-A tárolt filmek
+Az eltárolt filmek
 
 * id: egész
 * cim: A film címe
@@ -55,7 +55,7 @@ Visszaadja a filmek listáját.
             "kategoria": "vígjáték, dráma",
             "hossz": 118,
             "ertekeles": 8
-        },
+        } ...
     }
 
 ### **POST /api/film**
@@ -66,11 +66,11 @@ Visszaadja a létrehozott film adatait, beleértve a generált ID-t.
 
 ### **GET /api/film/{id}**
 
-Az *id* azonosítójú film adatait adja vissza.
+Az **id** azonosítójú film adatait adja vissza.
 
 ### **PATCH /api/film/{id}**
 
-Módosítja az *id* azonosítójú film adatait. Csak a módosítandó adatokat kell megadni, pl. ha csak az értékelést szeretnénk módosítani, akkor elég ennyit megadni:
+Módosítja az **id** azonosítójú film adatait. Csak a módosítandó adatokat kell megadni, pl. ha csak az értékelést szeretnénk módosítani, akkor elég ennyit megadni:
 
     {
         "ertekeles": 8,
@@ -82,7 +82,7 @@ Visszaadja a módosított film adatait.
 
 ### **PUT /api/film/{id}**
 
-Módosítja az *id* azonosítójú film adatait. Minden adatot meg kell adni.
+Módosítja az **id** azonosítójú film adatait. Minden adatot meg kell adni.
 
 Az ID nem módosítható.
 
@@ -90,7 +90,7 @@ Visszaadja a módosított film adatait.
 
 ### **DELETE /api/film/{id}**
 
-Törli az adott azonosítójú filmet.
+Törli az **id** azonosítójú filmet.
 
 Visszatérésnek nem ad vissza tartalmat.
 
