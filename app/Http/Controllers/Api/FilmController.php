@@ -37,7 +37,7 @@ class FilmController extends Controller
                 $errormsg .= $error . " ";
             }
             $errormsg = trim($errormsg);
-            return response()->json($errormsg, 400);
+            return response()->json(["message" => $errormsg], 400);
         }
         $film = new Film();
         $film->fill($request->all());
