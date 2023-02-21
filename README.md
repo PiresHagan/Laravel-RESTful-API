@@ -5,6 +5,11 @@ Filmek adatait tároló laravel alkalmazás. Ez egy oktatási célú repo a BMSZ
 ## Telepítési lépések
 
 - Készítsünk egy másolatot az .env.example fájlról, .env néven!
+  
+  ```sh
+  cp .env.example .env
+  ```
+
 - A fájlban írjuk át az adatbázis kapcsolat adatait a megfelelőre!
 
 - A konzolban hajtsuk végre az alábbi utasításokat:
