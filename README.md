@@ -1,18 +1,18 @@
-# FilmDb backend laraveles megvalósítása
+# Laravel implementation of FilmDb backend
 
-Filmek adatait tároló laravel alkalmazás. Ez egy oktatási célú repo a BMSZC Petrik Lajos technikum végzős szoftverfejlesztő osztályai számára.
+Laravel application that stores data for movies. This is an educational repo for the graduate software development classes of BMSZC Petrik Lajos Technikum.
 
-## Telepítési lépések
+## Installation steps
 
-- Készítsünk egy másolatot az .env.example fájlról, .env néven!
+- Let's make a copy of the .env.example file named .env.
   
   ```sh
   cp .env.example .env
   ```
 
-- A fájlban írjuk át az adatbázis kapcsolat adatait a megfelelőre!
+- In the file, rewrite the data of the database connection to the appropriate one!
 
-- A konzolban hajtsuk végre az alábbi utasításokat:
+- Execute the following instructions in the console:
 
   ```sh
   composer install
@@ -20,107 +20,11 @@ Filmek adatait tároló laravel alkalmazás. Ez egy oktatási célú repo a BMSZ
   php artisan migrate --seed
   ```
 
-- A fejlesztői szervert az alábbi utasítással indíthatjuk el:
+- The development server can be started with the following command:
 
   ```sh
   php artisan serve
   ```
 
-- Ellenőrizzük, hogy minden rendben van-e, hogy az alábbi URL teszt JSON adatokat ad-e vissza:
-
+- Let's check that everything is fine, that the following URL test returns JSON data:
   <http://localhost:8000/api/film>
-
-## Adattáblák
-
-### **filmek**
-
-Az eltárolt filmek
-
-- id: egész
-- cim: A film címe
-- kategoria: A film kategóriái felsorolva
-- hossz: A film hossza percben
-- ertekeles: A film értékelése 1-10-es skálán
-
-## API végpontok
-
-Minden be- és kimeneti adat JSON formátumú.
-
-### **GET /api/film**
-
-Visszaadja a filmek listáját.
-
-```json
-[
-    {
-        "id": 1,
-        "cim": "Numquam labore similique excepturi.",
-        "kategoria": "horror, akció, fantasy",
-        "hossz": 74,
-        "ertekeles": 4
-    },
-    {
-        "id": 2,
-        "cim": "Architecto voluptas aspernatur ea qui est.",
-        "kategoria": "vígjáték, dráma",
-        "hossz": 118,
-        "ertekeles": 8
-    },...
-]
-```
-
-### **POST /api/film**
-
-Létrehoz egy új filmet a megadott adatokkal. Az id-n kívül minden mező megadása kötelező!
-
-Visszaadja a létrehozott film adatait, beleértve a generált ID-t.
-
-### **GET /api/film/{id}**
-
-Az **id** azonosítójú film adatait adja vissza.
-
-### **PATCH /api/film/{id}**
-
-Módosítja az **id** azonosítójú film adatait. Csak a módosítandó adatokat kell megadni, pl. ha csak az értékelést szeretnénk módosítani, akkor elég ennyit megadni:
-
-```json
-{
-    "ertekeles": 8,
-}
-```
-
-Az ID nem módosítható.
-
-Visszaadja a módosított film adatait.
-
-### **PUT /api/film/{id}**
-
-Módosítja az **id** azonosítójú film adatait. Minden adatot meg kell adni.
-
-Az ID nem módosítható.
-
-Visszaadja a módosított film adatait.
-
-### **DELETE /api/film/{id}**
-
-Törli az **id** azonosítójú filmet.
-
-Visszatérésnek nem ad vissza tartalmat.
-
-## Hibakezelés
-
-Ha a végpontot nem megfelelően hívtuk meg, vagy az adatok nem felelnek meg a leírtaknak, a backend az alábbi módon jelzi a hibaeseteket:
-
-- A HTTP státusz kód a 400-as sávból fog kikerülni, a hiba típusának megfelelően
-- A visszakapott JSON objetum "message" tulajdonsága tartalmazza a hiba okát.
-
-Pl.: GET <http://localhost:8000/api/film/9999> (nem létező id)
-
-```json
-404 Not Found
-{
-    "message": "A megadott azonosítóval nem található film"
-}
-```
-
-A kérésnél ne felejtsük beállítani az "Accept" header értékét "application/json"-ra!
